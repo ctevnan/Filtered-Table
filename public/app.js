@@ -1,0 +1,1 @@
+angular.module('filteredtable', [ng-table])
