@@ -1,1 +1,5 @@
-angular.module('filteredtable', [ng-table])
+angular.module('filteredtable', [])
+.controller('filteredtableController', function($scope, $http) {
+
+  $scope
+});
