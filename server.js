@@ -1,14 +1,18 @@
 var express = require('express');
 var logger = require('morgan');
+var db = require('./config/connection.js');
+var PORT = process.env.PORT || 3000;
 
 var app = express();
 
-var PORT = process.env.PORT || 3000;
-
-app.use (express.static('public'));
+//middleware
 app.use (logger('dev'));
-var port = 3000;
+app.use (express.static('public'));
 
-app.listen(port, function (
-  console.log('listening on port:' + port);
+//routes
+var routes = require('./controllers/router.js');
+app.use('/', routes);
+
+app.listen(PORT, function(){
+  console.log('listening on ', PORT);
 });
