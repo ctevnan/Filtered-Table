@@ -2,17 +2,19 @@
 <html ng-app="githubApp">
   <head>
     <meta charset ="utf-8">
-    <title>Filtered Table App</title>
+    <title>Filtered Table</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ng-table/0.8.3/ng-table.css" media="screen" title="no title" charset="utf-8">
   </head>
   <body ng-controller="GithubController">
     <input type ="text" ng-model="username" />
     <button ng-click="loadRepos()">Load</button>
-    <table ng-table="githubTable" show-filter="true">
-      <tr ng-repeat="repo in $data">
-        <td data-title="'Title'" sortable="'title'" filter="{ repo.full_name }">{{ repo.owner.login }}</td> <!--check line-->
+    <table ng-table="GithubTable">
+      <tr ng-repeat="repo in repos">
+        <td> {{ repo.owner.login }} </td>
+        <td> {{ repo.full_name }} </td>
+        <td> {{ repo.description }} </td>
       </tr>
-    </table>      
+    </table>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.3/angular.min.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/ng-table/0.8.3/ng-table.min.js"></script>
     <script type="text/javascript" src="app.js"></script>
