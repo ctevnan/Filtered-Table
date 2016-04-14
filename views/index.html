@@ -10,9 +10,9 @@
     <button ng-click="loadRepos()">Load</button>
     <table ng-table="githubTable">
       <tr ng-repeat="repo in $data">
-        <td> {{ repo.owner.login }} </td>
-        <td> {{ repo.full_name }} </td>
-        <td> {{ repo.description }} </td>
+        <td data-title="'Owner'"> {{ repo.owner.login }} </td>
+        <td data-title="'Name of Repository'" sortable="'full_name'"> {{ repo.full_name }} </td>
+        <td data-title="'Description'" sortable="'description'"> {{ repo.description }} </td>
       </tr>
     </table>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.3/angular.min.js"></script>
