@@ -4,7 +4,8 @@ angular.module('githubApp', ['ngTable'])
     getData: function($defer, params) {
       return $http.get('https://api.github.com/users/' + $scope.username + '/repos')
       .then(function (response) {
-        var sortedData = $filter('orderBy')(response.data, params.orderBy());
+        var filteredData = $filter('filter')(response.data, params.filter());
+        var sortedData = $filter('orderBy')(filteredData, params.orderBy());
         return sortedData;
       });  
     }
